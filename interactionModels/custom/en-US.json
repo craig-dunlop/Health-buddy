@@ -1,0 +1,111 @@
+{
+  "interactionModel": {
+    "languageModel": {
+      "invocationName": "health buddy",
+      "intents": [
+        {
+          "name": "AMAZON.CancelIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.HelpIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.StopIntent",
+          "samples": []
+        },
+        {
+          "name": "HelloWorldIntent",
+          "slots": [],
+          "samples": [
+            "hello",
+            "how are you",
+            "say hi world",
+            "say hi",
+            "hi",
+            "say hello world",
+            "say hello"
+          ]
+        },
+        {
+          "name": "AMAZON.NavigateHomeIntent",
+          "samples": []
+        },
+        {
+          "name": "AMAZON.FallbackIntent",
+          "samples": []
+        },
+        {
+          "name": "GetHelpIntent",
+          "slots": [
+            {
+              "name": "symptom",
+              "type": "symptoms",
+              "samples": [
+                "i have flu",
+                "i have flu like symptoms"
+              ],
+              "multipleValues": {
+                "enabled": true
+              }
+            }
+          ],
+          "samples": [
+            "help me with my {symptom}"
+          ]
+        }
+      ],
+      "types": [
+        {
+          "values": [
+            {
+              "name": {
+                "value": "flu"
+              }
+            },
+            {
+              "name": {
+                "value": "headache"
+              }
+            }
+          ],
+          "name": "symptoms"
+        }
+      ]
+    },
+    "dialog": {
+      "intents": [
+        {
+          "name": "GetHelpIntent",
+          "confirmationRequired": false,
+          "prompts": {},
+          "slots": [
+            {
+              "name": "symptom",
+              "type": "symptoms",
+              "elicitationRequired": true,
+              "confirmationRequired": false,
+              "prompts": {
+                "elicitation": "Elicit.Slot.950479963838.1539576446651"
+              }
+            }
+          ]
+        }
+      ],
+      "delegationStrategy": "ALWAYS"
+    },
+    "prompts": [
+      {
+        "id": "Elicit.Slot.950479963838.1539576446651",
+        "variations": [
+          {
+            "type": "PlainText",
+            "value": "tell me what\u0027s wrong with you"
+          }
+        ]
+      }
+    ]
+  },
+  "version": "3"
+}
